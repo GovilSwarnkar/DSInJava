@@ -5,6 +5,10 @@ public class StackSingleLinkedListImpl {
 	private class Node {
 		int item;
 		Node next;
+
+		private Node(int item) {
+			this.item = item;
+		}
 	}
 
 	private Node top;
@@ -14,11 +18,10 @@ public class StackSingleLinkedListImpl {
 	}
 
 	public void push(int item) {
-		Node newNode = new Node();
+		Node newNode = new Node(item);
 		/*
 		 * if (newNode == null) { throw new RuntimeException("Heap Overflow"); }
 		 */
-		newNode.item = item;
 		newNode.next = top;
 		top = newNode;
 	}
