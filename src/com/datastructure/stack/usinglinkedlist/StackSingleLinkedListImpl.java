@@ -32,8 +32,10 @@ public class StackSingleLinkedListImpl {
 		}
 
 		int temp = top.item;
+		Node t = top;
 		top = top.next;
-
+		t.next = null;
+		t = null;
 		return temp;
 	}
 
