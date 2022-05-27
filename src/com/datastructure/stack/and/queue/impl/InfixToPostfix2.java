@@ -2,7 +2,7 @@ package com.datastructure.stack.and.queue.impl;
 
 import java.util.Stack;
 
-public class InfixToPostfix {
+public class InfixToPostfix2 {
 
 	public String infixToPostfix(String infix) {
 		StringBuilder postfix = new StringBuilder("");
@@ -11,15 +11,16 @@ public class InfixToPostfix {
 			char ch = infix.charAt(i);
 			if (Character.isLetterOrDigit(ch)) {
 				postfix.append(ch);
-			} else if (ch == '(') {
-				operatorStack.push(ch);
 			} else if (ch == ')') {
 				while (!operatorStack.isEmpty() && operatorStack.peek() != '(') {
 					postfix.append(operatorStack.pop());
 				}
-				operatorStack.pop();
+				if (!operatorStack.isEmpty() && operatorStack.peek() == '(') {
+					operatorStack.pop();
+				}
 			} else {
-				while (!operatorStack.isEmpty() && precedence(ch) <= precedence(operatorStack.peek())) {
+				while (!operatorStack.isEmpty()
+						&& (precedence(ch) <= precedence(operatorStack.peek()) || operatorStack.peek() != '(')) {
 					postfix.append(operatorStack.pop());
 				}
 				operatorStack.push(ch);

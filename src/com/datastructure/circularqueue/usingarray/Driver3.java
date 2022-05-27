@@ -1,10 +1,10 @@
-package com.datastructure.queue.usinglinkedlist;
+package com.datastructure.circularqueue.usingarray;
 
-public class Driver2 {
+public class Driver3 {
 
 	public static void main(String[] args) {
-		QueueSingleLinkedListImpl queue = new QueueSingleLinkedListImpl();
-		for (int i = 1; i <= 4; i++) {
+		CircularQueueArrayImpl_3 queue = new CircularQueueArrayImpl_3(10);
+		for (int i = 1; i <= 9; i++) {
 			queue.enqueue(i);
 		}
 
@@ -17,7 +17,8 @@ public class Driver2 {
 		System.out.println("rear : " + queue.rear());
 
 		System.out.println("dequeue : " + queue.dequeue()); // 1 item deleted, overall 9 item
-		queue.enqueue(14);
+		queue.enqueue(14); // 1 item added, queue is full
+		// queue.enqueue(15); //11th item can not add
 
 		System.out.println("front : " + queue.front());
 		System.out.println("rear : " + queue.rear());

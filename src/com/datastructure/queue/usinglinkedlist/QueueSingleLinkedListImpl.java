@@ -21,10 +21,10 @@ public class QueueSingleLinkedListImpl {
 	public void enqueue(int key) {
 		Node newNode = new Node(key);
 		if (isEmptyFront.test(this)) {
-			this.rear = this.front = newNode;
+			rear = front = newNode;
 		} else {
-			this.rear.next = newNode;
-			this.rear = this.rear.next;
+			rear.next = newNode;
+			rear = rear.next;
 		}
 	}
 
@@ -32,26 +32,29 @@ public class QueueSingleLinkedListImpl {
 		if (isEmptyRear.test(this)) {
 			throw new RuntimeException("Queue is empty");
 		}
-		Node temp = this.front;
-		this.front = this.front.next;
+		Node temp = front;
+		front = front.next;
+		temp.next = null;
+		int item = temp.key;
+		temp = null;
 
 		if (isEmptyFront.test(this)) {
-			this.rear = null;
+			rear = null;
 		}
-		return temp.key;
+		return item;
 	}
 
 	public int front() {
 		if (isEmptyRear.test(this)) {
 			throw new RuntimeException("Queue is empty");
 		}
-		return this.front.key;
+		return front.key;
 	}
 
 	public int rear() {
 		if (isEmptyFront.test(this)) {
 			throw new RuntimeException("Queue is empty");
 		}
-		return this.rear.key;
+		return rear.key;
 	}
 }
