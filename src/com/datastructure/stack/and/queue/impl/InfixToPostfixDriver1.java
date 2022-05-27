@@ -11,7 +11,7 @@ public class InfixToPostfixDriver1 {
 		//System.out.println(infixToPostfix.infixToPostfix("a+b*(c^d-e)^(f+g*h)-i)")); //mactching paranthesis not working
 		System.out.println(infixToPostfix.infixToPostfix("-i"));
 		System.out.println(infixToPostfix.infixToPostfix("a*b+(c-d)"));
-		System.out.println(".>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+		System.out.println(".>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
 	}  
 }
 
